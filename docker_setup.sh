@@ -5,7 +5,7 @@ NIC="eth0"
 name="dns-server"
 
 #MY_IP=$(ifconfig $NIC | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')
-MY_IP=$(/sbin/ifconfig eth0 | grep 'inet'| cut -d: -f2 | awk '{ print $2}')
+MY_IP=$(/sbin/ifconfig $NIC | grep 'inet'| cut -d: -f2 | awk '{ print $2}')
 
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
